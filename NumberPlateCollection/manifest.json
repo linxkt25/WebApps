@@ -1,0 +1,20 @@
+{
+  "name": "ナンバープレートコレクション",
+  "short_name": "ナンバー記録",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#4CAF50",
+  "icons": [
+    {
+      "src": "resource/icon192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "resource/icon512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
