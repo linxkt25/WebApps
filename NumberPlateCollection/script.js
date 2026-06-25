@@ -80,6 +80,22 @@ let regions = JSON.parse(localStorage.getItem(REGIONS_KEY)) || [];
   if (!regions || regions.length === 0) {
     regions = defaultRegions.slice();
     persist();
+  } else {
+    // defaultRegions にあるが regions に存在しない項目を追加して表示する
+    let changed = false;
+    defaultRegions.forEach(def => {
+      const defRegion = def.region || def.name || "";
+      const normalizedDef = `${(def.prefecture||"")}|${defRegion}|${(def.plate||"")}`.toLowerCase();
+      const exists = regions.some(r => {
+        const rRegion = r.region || r.name || "";
+        return `${(r.prefecture||"")}|${rRegion}|${(r.plate||"")}`.toLowerCase() === normalizedDef;
+      });
+      if (!exists) {
+        regions.push({ prefecture: def.prefecture, region: defRegion, plate: def.plate, checked: false });
+        changed = true;
+      }
+    });
+    if (changed) persist();
   }
 
   render();
