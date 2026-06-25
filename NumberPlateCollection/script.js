@@ -30,11 +30,39 @@ function render() {
 // 初期表示
 render();
 
-// PWA: Service Worker 登録
+// PWA: Service Worker 登録と更新検知
 if ("serviceWorker" in navigator) {
+  let refreshing = false;
+
   navigator.serviceWorker.register("./sw.js")
-    .then(() => console.log("Service Worker registered"))
+    .then(reg => {
+      console.log("Service Worker registered");
+
+      if (reg.waiting && !refreshing) {
+        refreshing = true;
+        window.location.reload();
+      }
+
+      reg.addEventListener("updatefound", () => {
+        const newWorker = reg.installing;
+        if (!newWorker) return;
+
+        newWorker.addEventListener("statechange", () => {
+          if (newWorker.state === "installed" && navigator.serviceWorker.controller && !refreshing) {
+            refreshing = true;
+            window.location.reload();
+          }
+        });
+      });
+    })
     .catch(err => console.log("SW registration failed:", err));
+
+  navigator.serviceWorker.addEventListener("controllerchange", () => {
+    if (!refreshing) {
+      refreshing = true;
+      window.location.reload();
+    }
+  });
 }
 
 
