@@ -11,10 +11,41 @@
 <body>
   <h1>ナンバープレート地域コレクション</h1>
   
-  <input id="regionInput" type="text" placeholder="地域名を入力">
-  <button id="addBtn">追加</button>
+  <div class="top-row">
+    <div class="add-row">
+      <input id="prefectureInput" type="text" placeholder="県名を入力">
+      <input id="regionInput" type="text" placeholder="地域名を入力">
+      <input id="plateInput" type="text" placeholder="ナンバープレート名を入力">
+      <button id="addBtn">追加</button>
+    </div>
+
+    <button id="openSettingsBtn" class="secondary">設定</button>
+  </div>
+
+  <p class="hint">チェックした地域は自動で保存されます。<br>「削除」で項目を消せます。</p>
 
   <ul id="regionList"></ul>
+
+  <div id="settingsModal" class="modal hidden">
+    <div class="modal-content">
+      <h2>デフォルト地域の設定</h2>
+      <p class="hint">起動時に読み込まれる初期地域リストを編集できます。</p>
+
+      <div class="settings-row">
+        <input id="defaultPrefectureInput" type="text" placeholder="県名を入力">
+        <input id="defaultRegionInput" type="text" placeholder="地域名を入力">
+        <input id="defaultPlateInput" type="text" placeholder="ナンバープレート名を入力">
+        <button id="defaultAddBtn">追加</button>
+      </div>
+
+      <ul id="defaultRegionList"></ul>
+
+      <div class="settings-actions">
+        <button id="saveDefaultBtn">保存</button>
+        <button id="closeSettingsBtn" class="secondary">閉じる</button>
+      </div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
