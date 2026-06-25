@@ -1,0 +1,7 @@
+[
+  { "prefecture": "北海道", "region": "札幌", "plate": "北海道", "checked": false },
+  { "prefecture": "東京", "region": "東京", "plate": "東京", "checked": false },
+  { "prefecture": "大阪", "region": "大阪", "plate": "大阪", "checked": false },
+  { "prefecture": "福岡", "region": "福岡", "plate": "福岡", "checked": false },
+  { "prefecture": "沖縄", "region": "那覇", "plate": "沖縄", "checked": false }
+]
