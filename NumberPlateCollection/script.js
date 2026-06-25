@@ -256,3 +256,5 @@ if ("serviceWorker" in navigator) {
     .then(() => console.log("Service Worker registered"))
     .catch(err => console.log("SW registration failed:", err));
 }
+
+

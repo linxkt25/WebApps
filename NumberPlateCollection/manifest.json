@@ -1,6 +1,6 @@
 {
   "name": "ナンバープレートコレクション",
-  "short_name": "ナンバー記録",
+  "short_name": "ナンコレ",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#ffffff",
