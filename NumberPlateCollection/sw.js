@@ -1,5 +1,5 @@
 // Service Worker のキャッシュ名。更新時にここを上げると古いキャッシュが破棄される。
-const CACHE_NAME = "plate-app-v5";
+const CACHE_NAME = "plate-app-v6";
 
 // install イベントで事前キャッシュするファイル。
 const urlsToCache = [
